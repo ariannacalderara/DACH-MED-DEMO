@@ -1,15 +1,12 @@
-Steps to follow:
+DACH-MED-DEMO: Federated Knowledge Graphs for Healthcare
 
-1. Install required libraries 
-    - Create a virtual environment
-    - Then install the necessary packages (pip install flwr pandas scikit-learn rdflib openai python-dotenv matplotlib networkx)
-    - if needed install torch (PyTorch) - pip install torch torchvision
+This repository demonstrates a **prototype architecture** that combines **Federated Learning (FL)** and **RDF-based Knowledge Graphs (KG)** for the healthcare domain. The project simulates a decentralized scenario where multiple medical institutions (clients) collaboratively contribute to a global RDF Knowledge Graph, **without sharing raw patient data**.
 
-2. Data Preparation
-    - let's use diabetes.csv from kaggle (https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
-    - create and run split_data.py
+## Objective
 
-3. Federated Learning Set-up with Flower
-    - complete server.py
-    - define client_1.py and client_2.py
-    - Run: server.py, client_1.py (in new terminal) and client_2.py (in another terminal)
+The goal of this project is to showcase how:
+- Each **client** builds its **local RDF Knowledge Graph** from data.
+- A central **federated learning server** orchestrates the training and **aggregates knowledge** across clients.
+- A final **global Knowledge Graph** is generated to represent shared insights across all data sources.
+
+To simulate a decentralized architechture, the dataset used (diabetes.csv) is split among 2 participating clients. Each client models a KG and then these get aggregated into a global one. Clients never share the raw csv files and this is why this technique is widely adopted for sesntive data with special privacy requirements.
